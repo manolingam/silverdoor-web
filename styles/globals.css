@@ -20,12 +20,7 @@ html {
 
 ::-webkit-scrollbar-thumb {
   background: #8deeff;
-  /* border-radius: 5px; */
 }
-
-/* ::-webkit-scrollbar-thumb:hover {
-  background: #8deeff;
-} */
 
 #logo-text {
   writing-mode: vertical-rl;
