@@ -1,69 +1,91 @@
-import { Flex, Text } from '@chakra-ui/react';
-import { useEffect } from 'react';
-import { useAnimation, motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-
-import { copyText, containerVariants } from '../config';
+import { SimpleGrid, Flex, Box, Text } from '@chakra-ui/react';
 
 export const Clients = () => {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold: 1 });
-
-  useEffect(() => {
-    if (inView) {
-      console.log(inView);
-      controls.start('visible');
-    }
-  }, [controls, inView]);
-
   return (
-    <motion.div
-      ref={ref}
-      animate={controls}
-      initial='hidden'
-      variants={containerVariants}
+    <Flex
+      direction='column'
+      bgImage='url(/galaxy.png)'
+      bgSize='cover'
+      bgPosition='bottom'
     >
-      <Flex
-        direction='column'
-        alignItems='left'
-        justifyContent='center'
-        minH='100vh'
-        px={{ lg: '5rem', sm: '1rem' }}
-        mr='1rem'
-        bg='#1e1e1e'
-        id='clients'
-        className='section'
-      >
+      <SimpleGrid columns={{ lg: 3, sm: 1 }} gap='5' my='5rem' px='3rem'>
         <Flex
           direction='column'
-          boxShadow={{
-            lg: 'inset 5px 5px 10px #131313, inset -5px -5px 10px #292929',
-            sm: 'none'
-          }}
-          borderRadius='20px'
+          justifyContent='flex-start'
+          alignItems='center'
           p='2rem'
+          bg='#9cbece'
         >
-          <Text
-            fontFamily='rajdhani'
-            opacity='1'
-            fontSize={{ lg: '48px', sm: '28px' }}
-            textTransform='uppercase'
-            mb='2rem'
-            color='#9cbece'
-          >
-            {copyText[2].title}
+          <Box fontSize='75px' color='#030407'>
+            <i className='fa-solid fa-laptop-code'></i>
+          </Box>
+          <Text fontSize='20px' mb='1rem' color='#030407' opacity='1'>
+            Our Clients
           </Text>
           <Text
-            fontFamily='rajdhani'
+            fontSize='18px'
+            mb='1rem'
+            color='#030407'
             opacity='0.5'
-            fontSize={{ lg: '24px', sm: '18px' }}
-            maxW={{ lg: '80%', sm: '100%' }}
-            color='#9cbece'
+            textAlign='left'
           >
-            {copyText[2].content}
+            We are capital. Our primary clients are software engineers just like
+            us. We built Silver Door because as engineers; we needed a way to
+            leverage collective bargaining and safely help launch startups.
           </Text>
         </Flex>
-      </Flex>
-    </motion.div>
+        <Flex
+          direction='column'
+          justifyContent='flex-start'
+          alignItems='center'
+          p='2rem'
+          bg='#9cbece'
+        >
+          <Box fontSize='75px' color='#030407'>
+            <i className='fa-solid fa-seedling'></i>
+          </Box>
+          <Text fontSize='20px' mb='1rem' color='#030407' opacity='1'>
+            Silver Door's Equity Partnerships
+          </Text>
+          <Text
+            fontSize='18px'
+            mb='1rem'
+            color='#030407'
+            opacity='0.5'
+            textAlign='left'
+          >
+            We engage in early-stage equity partnerships with visionary
+            entrepreneurs, providing long term technical expertise and technical
+            strategy.
+          </Text>
+        </Flex>
+        <Flex
+          direction='column'
+          justifyContent='flex-start'
+          alignItems='center'
+          p='2rem'
+          bg='#9cbece'
+        >
+          <Box fontSize='75px' color='#030407'>
+            <i className='fa-sharp fa-solid fa-suitcase'></i>
+          </Box>
+          <Text fontSize='20px' mb='1rem' color='#030407' opacity='1'>
+            Our Partners
+          </Text>
+          <Text
+            fontSize='18px'
+            mb='1rem'
+            color='#030407'
+            opacity='0.5'
+            textAlign='left'
+          >
+            We offer an infinite upfront cost basis advantage over other
+            development service providers. We reduce partner burn rates during
+            minimum viable product, product market fit, and scaling growth
+            cycles.
+          </Text>
+        </Flex>
+      </SimpleGrid>
+    </Flex>
   );
 };

@@ -1,8 +1,11 @@
 import { ChakraProvider, Flex, extendTheme } from '@chakra-ui/react';
 
+import { Header } from '../shared/Header';
+
 import Fonts from '../Fonts';
 
 import '../styles/globals.css';
+import { Footer } from '../shared/Footer';
 
 const breakpoints = {
   base: '320px',
@@ -25,9 +28,17 @@ function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={theme}>
       <Fonts />
-      <Flex direction='column' height='100vh' w='100vw' bg='#1e1e1e'>
+      <Header />
+      <Flex
+        direction='column'
+        w='100vw'
+        bg='#030407'
+        fontFamily='rajdhani'
+        py='3rem'
+      >
         <Component {...pageProps} />
       </Flex>
+      <Footer />
     </ChakraProvider>
   );
 }
